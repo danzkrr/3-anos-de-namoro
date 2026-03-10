@@ -94,3 +94,8 @@ body {
         opacity: 0;
     }
 }
+
+#bgMusic {
+  position: fixed;
+  top: -9999px; /* Esconde fora da tela */
+}

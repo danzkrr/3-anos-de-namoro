@@ -16,9 +16,21 @@
 
     <div class="heart-container"></div>
 
+    <!-- Música de fundo (mutada por padrão) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music/freak-in-me.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
     <div class="relative z-10 flex items-center justify-center min-h-screen px-4">
-        <div class="bg-white/25 backdrop-blur-lg border border-white/40 rounded-2xl shadow-2xl
-             px-8 py-10 text-center max-w-4xl w-full text-white">
+
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-20">
+            <img src="imgs/dancing-cat-unscreen.gif" alt="Gato dançante"
+                class="w-[180px] sm:w-[200px] md:w-[220px] h-auto drop-shadow-2xl" />
+        </div>
+
+        <div
+            class="bg-white/25 backdrop-blur-lg border border-white/40 rounded-2xl shadow-2xl px-8 py-10 text-center max-w-4xl w-full text-white relative z-10">
             <h1 class="text-black text-3xl font-bold mb-4">Galeria de Fotos</h1>
 
             <h2 class="text-black font-bold text-lg leading-relaxed mb-4">
@@ -29,14 +41,35 @@
                 diferente.
             </h2>
 
-            <button type="button" class="mt-4 inline-flex items-center justify-center px-6 py-2.5
-               bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold
-               rounded-full shadow-lg transition transform hover:-translate-y-0.5"
+            <button type="button" class="mt-4 px-6 py-2.5 sm:px-8 sm:py-3 bg-linear-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-semibold rounded-full shadow-2xl text-lg sm:text-base transition-all hover:scale-105 active:scale-95"
                 onclick="window.location.href='galeria.html'">
                 Acessar
             </button>
         </div>
+
+        <div class="absolute bottom-[15%] sm:bottom-[18%] left-1/2 -translate-x-1/2 z-20 pt-4">
+            <button onclick="toggleMusic()" class="px-6 py-2.5 sm:px-8 sm:py-3 bg-linear-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-semibold rounded-full shadow-2xl text-sm sm:text-base transition-all hover:scale-105 active:scale-95">
+                🎵 Aperte. Hihihi!
+            </button>
+        </div>
+
     </div>
+
+    <script>
+        const audio = document.getElementById('bgMusic');
+
+        // Toca mutada ao carregar (funciona em todos navegadores)
+        audio.play().catch(e => console.log('Autoplay bloqueado:', e));
+
+        // Botão pra ativar/desativar (adicione na caixa)
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
 
     <script src="scripts/coracoes.js"></script>
 </body>
