@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrosel de Fotos</title>
+
+    <link href="src/output.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body class="min-h-screen bg-linear-to-r from-pink-100 to-purple-100 py-12 px-4">
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music/freak-in-me.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <div class="max-w-2xl mx-auto">
+
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Nossas Fotos 💕</h1>
+
+        <div class="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-3xl shadow-2xl">
+
+            <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700">
+                <img src="imgs/carousel/img1.jpg" alt="Foto 1" class="w-full h-3/5 object-cover rounded-t-3xl">
+                <div class="h-2/5 bg-linear-to-b from-transparent to-black/90 flex items-center p-8 text-white">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">
+                            Foto 1 - Meu papel de parede
+                        </h3>
+
+                        <p class="text-lg opacity-90">
+                            Quis começar com essa foto pois ela tem uma vibe incrível
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700">
+                <img src="imgs/carousel/img1.jpg" alt="Foto 1" class="w-full h-3/5 object-cover rounded-t-3xl">
+                <div class="h-2/5 bg-linear-to-b from-transparent to-black/90 flex items-center p-8 text-white">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">
+                            Foto 2 - Meu papel de parede
+                        </h3>
+
+                        <p class="text-lg opacity-90">
+                            Quis começar com essa foto pois ela tem uma vibe incrível
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg text-gray-800 text-xl font-bold transition-all hover:scale-110 z-20">❮</button>
+            <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg text-gray-800 text-xl font-bold transition-all hover:scale-110 z-20">❯</button>
+
+        </div>
+
+        <div class="flex justify-center mt-6 space-x-3">
+            <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all" onclick="currentSlide(1)"></span>
+            <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all" onclick="currentSlide(2)"></span>
+        </div>
+
+        <div class="absolute bottom-[15%] sm:bottom-[18%] left-1/2 -translate-x-1/2 z-20 pt-4">
+            <button onclick="toggleMusic()" class="px-6 py-2.5 sm:px-8 sm:py-3 bg-linear-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-semibold rounded-full shadow-2xl text-sm sm:text-base transition-all hover:scale-105 active:scale-95">
+                🎵 Aperte. Hihihi!
+            </button>
+        </div>
+
+    </div>
+
+    <script src="scripts/change_slide.js"></script>
+    <script src="scripts/play_music.js"></script>
+
+</body>
+
+</html>

@@ -1,11 +1,11 @@
 const container = document.querySelector(".heart-container")
-const fotos = [
+const photos = [
     'imgs/img1.png',
     'imgs/img2.jpg',
     'imgs/img3.jpeg'
 ]
 
-function criarCoracao() {
+function createHearts() {
     const heart = document.createElement("div")
     heart.classList.add('heart')
 
@@ -13,7 +13,7 @@ function criarCoracao() {
     shape.classList.add('heart-shape')
 
     const img = document.createElement("img")
-    img.src = fotos[Math.floor(Math.random() * fotos.length)]
+    img.src = photos[Math.floor(Math.random() * photos.length)]
 
     heart.appendChild(shape)
     heart.appendChild(img)
@@ -28,4 +28,4 @@ function criarCoracao() {
     }, 12000)
 }
 
-setInterval(criarCoracao, 800)
+setInterval(createHearts, 800)
