@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galeria de Fotos</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/coracoes.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link href="src/output.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/coracoes.css" />
 </head>
-<body>
+
+<body class="min-h-screen m-0">
+
     <div class="heart-container"></div>
 
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <div class="p-5 acrylic-box text-center">
-            <h1>Galeria de Fotos</h1>
-            <h5>No botão abaixo você terá acesso a galeria de fotos com uma descrição de cada uma delas Hehehe!</h5>
-            <button type="button" class="btn btn-primary mt-3" onclick="window.location.href='galeria.html'">
-                Galeria de Fotos
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-4">
+        <div class="bg-white/25 backdrop-blur-lg border border-white/40 rounded-2xl shadow-2xl
+             px-8 py-10 text-center max-w-4xl w-full text-white">
+            <h1 class="text-black text-3xl font-bold mb-4">Galeria de Fotos</h1>
+
+            <h2 class="text-black font-bold text-lg leading-relaxed mb-4">
+                No botão abaixo, você terá acesso a uma galeria de fotos, cada uma com uma pequena descrição. Hihihi!
+            </h2>
+            <h2 class="text-black font-bold text-lg leading-relaxed">
+                É um presente simples, mas espero que você goste e perceba o quanto me dediquei para fazer algo bonito e
+                diferente.
+            </h2>
+
+            <button type="button" class="mt-4 inline-flex items-center justify-center px-6 py-2.5
+               bg-pink-500 hover:bg-pink-600 text-white text-lg font-semibold
+               rounded-full shadow-lg transition transform hover:-translate-y-0.5"
+                onclick="window.location.href='galeria.html'">
+                Acessar
             </button>
         </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
     <script src="scripts/coracoes.js"></script>
 </body>
+
 </html>
