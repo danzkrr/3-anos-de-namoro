@@ -19,22 +19,22 @@
 }
 
 .modal img {
-    max-width: 95vw;
-    max-height: 95vh;
+    max-width: 98vw; /* Ganhe um pouco mais de espaço lateral */
+    max-height: 85vh; /* Diminua a altura máxima para não bater no botão de fechar */
     object-fit: contain;
-    border-radius: 20px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    border-radius: 10px; /* Raio menor fica mais elegante em telas pequenas */
 }
 
 .close {
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: 10px; /* Mais perto do topo em telas pequenas */
+    right: 20px;
     color: white;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 50px; /* Maior para facilitar o toque com o polegar */
+    line-height: 1;
     cursor: pointer;
     z-index: 1001;
+    -webkit-tap-highlight-color: transparent; /* Remove o brilho azul ao tocar no iPhone */
 }
 
 .close:hover {
