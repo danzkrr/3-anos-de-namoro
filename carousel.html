@@ -7,74 +7,193 @@
     <title>Carrosel de Fotos</title>
 
     <link href="src/output.css" rel="stylesheet">
-
     <link rel="stylesheet" href="style/style.css">
-</head>
-
-<body class="min-h-screen bg-linear-to-r from-pink-100 to-purple-100 py-12 px-4">
-
-    <audio id="bgMusic" loop preload="auto">
-        <source src="music/freak-in-me.mp3" type="audio/mpeg">
-        Seu navegador não suporta áudio.
-    </audio>
-
-    <div class="max-w-2xl mx-auto">
-
-        <h1 class="text-4xl font-bold text-center text-gray-800 mb-12">Nossas Fotos 💕</h1>
-
-        <div class="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-3xl shadow-2xl">
-
-            <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700">
-                <img src="imgs/carousel/img1.jpg" alt="Foto 1" class="w-full h-3/5 object-cover rounded-t-3xl">
-                <div class="h-2/5 bg-linear-to-b from-transparent to-black/90 flex items-center p-8 text-white">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2">
-                            Foto 1 - Meu papel de parede
-                        </h3>
-
-                        <p class="text-lg opacity-90">
-                            Quis começar com essa foto pois ela tem uma vibe incrível
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700">
-                <img src="imgs/carousel/img1.jpg" alt="Foto 1" class="w-full h-3/5 object-cover rounded-t-3xl">
-                <div class="h-2/5 bg-linear-to-b from-transparent to-black/90 flex items-center p-8 text-white">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-2">
-                            Foto 2 - Meu papel de parede
-                        </h3>
-
-                        <p class="text-lg opacity-90">
-                            Quis começar com essa foto pois ela tem uma vibe incrível
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <button onclick="changeSlide(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg text-gray-800 text-xl font-bold transition-all hover:scale-110 z-20">❮</button>
-            <button onclick="changeSlide(1)" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg text-gray-800 text-xl font-bold transition-all hover:scale-110 z-20">❯</button>
-
+    <link rel="stylesheet" href="style/modal.css">
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
+        <span class="close" onclick="closeModal(event)">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Imagem em tela cheia">
         </div>
-
-        <div class="flex justify-center mt-6 space-x-3">
-            <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all" onclick="currentSlide(1)"></span>
-            <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all" onclick="currentSlide(2)"></span>
-        </div>
-
-        <div class="absolute bottom-[15%] sm:bottom-[18%] left-1/2 -translate-x-1/2 z-20 pt-4">
-            <button onclick="toggleMusic()" class="px-6 py-2.5 sm:px-8 sm:py-3 bg-linear-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-semibold rounded-full shadow-2xl text-sm sm:text-base transition-all hover:scale-105 active:scale-95">
-                🎵 Aperte. Hihihi!
-            </button>
-        </div>
-
     </div>
 
-    <script src="scripts/change_slide.js"></script>
-    <script src="scripts/play_music.js"></script>
+    <script>
+        function closeModal(event) {
+            if (event.target.classList.contains('modal') || event.target.classList.contains('close')) {
+                document.getElementById('imageModal').style.display = 'none';
+            }
+        }
+    </script>
+</head>
 
+<body class="min-h-screen m-0">
+
+    <div class="heart-container"></div>
+
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-4">
+
+        <audio id="bgMusic" loop preload="auto">
+            <source src="music/freak-in-me.mp3" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+        </audio>
+
+        <div class="relative w-full max-w-4xl mx-auto">
+
+            <div class="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-3xl shadow-2xl mb-8">
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="0">
+                    <img src="imgs/carousel/img_1.jpeg" alt="Foto 1"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_1.jpeg">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
+                                A sua primeira foto
+                            </h3>
+                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
+                                Essa é classica, foi a primeira foto que tivemos juntos e foi eu quem tirou. Hehehe.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="1">
+                    <img src="imgs/carousel/img_2.jpg" alt="Foto 2"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_2.jpg">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
+                                Meu papel de parede
+                            </h3>
+                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
+                                Além de ser meu papel de parede, é um registro da Rebeca de cabelo liso.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="2">
+                    <img src="imgs/carousel/img_3.JPG" alt="Foto 3"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_3.JPG">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
+                                O dia da formatura
+                            </h3>
+                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
+                                Você estava ABSURDAMENTE linda no dia da formatura, e toda apaixonada por mim.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="3">
+                    <img src="imgs/carousel/img_4.jpg" alt="Foto 4"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_4.jpg">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
+                                Rebeca de cabelo curto
+                            </h3>
+                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
+                                Você fica linda de cabelo curto e tá fazendo uma cara muito fofa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="4">
+                    <img src="imgs/carousel/img_5.webp" alt="Foto 5"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_5.webp">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
+                                Rebeca na Gamecon
+                            </h3>
+                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
+                                Eu fico muito feliz que você sempre me apoia em tudo e sempre está ao meu lado
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="5">
+                    <img src="imgs/carousel/img_6.webp" alt="Foto 6"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_6.webp">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
+                                Representação
+                            </h3>
+                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
+                                Se você reparar, essa imagem representa nossa relacão, engraçadinho e estressadinha
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="6">
+                    <img src="imgs/carousel/img_7.webp" alt="Foto 7"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_7.webp">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
+                                Uma das primeiras fotos
+                            </h3>
+                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
+                                Essa foto foi antes do nosso primeiro aniversário de namoro, eramos novinhos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="changeSlide(-1)"
+                    class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg text-gray-800 text-xl font-bold transition-all hover:scale-110 z-20">❮</button>
+                <button onclick="changeSlide(1)"
+                    class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-3 rounded-full shadow-lg text-gray-800 text-xl font-bold transition-all hover:scale-110 z-20">❯</button>
+            </div>
+
+            <div class="flex justify-center mb-8 space-x-3">
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(1)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(2)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(3)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(4)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(5)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(6)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(7)"></span>
+            </div>
+
+            <div class="text-center">
+                <button onclick="toggleMusic()"
+                    class="px-6 py-2.5 sm:px-8 sm:py-3 bg-linear-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white font-semibold rounded-full shadow-2xl text-lg sm:text-base transition-all hover:scale-105 active:scale-95">
+                    🎵 Aperte. Hihihi!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/play_music.js"></script>
+    <script src="scripts/hearts.js"></script>
+    <script src="scripts/carousel.js"></script>
 </body>
 
 </html>
