@@ -25,11 +25,18 @@
     </script>
 </head>
 
-<body class="min-h-screen m-0">
+<body class="min-h-screen m-0 bg-gray-50">
+
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
+        <span class="close" onclick="closeModal(event)">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Imagem em tela cheia">
+        </div>
+    </div>
 
     <div class="heart-container"></div>
 
-    <div class="relative z-10 flex items-center justify-center min-h-screen px-4">
+    <div class="relative z-10 flex items-center justify-center min-h-screen px-4 py-8">
 
         <audio id="bgMusic" loop preload="auto">
             <source src="music/freak-in-me.mp3" type="audio/mpeg">
@@ -38,7 +45,7 @@
 
         <div class="relative w-full max-w-4xl mx-auto">
 
-            <div class="relative w-full h-[500px] md:h-[600px] overflow-hidden rounded-3xl shadow-2xl mb-8">
+            <div class="relative w-full h-[500px] md:h-[650px] overflow-hidden rounded-3xl shadow-2xl mb-8 bg-white">
 
                 <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="0">
                     <img src="imgs/carousel/img_1.jpeg" alt="Foto 1"
@@ -47,11 +54,9 @@
                     <div
                         class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
                         <div class="text-black">
-                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
-                                A sua primeira foto
-                            </h3>
-                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
-                                Essa é classica, foi a primeira foto que tivemos juntos e foi eu quem tirou. Hehehe.
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">A sua primeira foto</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
+                                Essa é clássica, foi a primeira foto que tivemos juntos e foi eu quem tirou. Hehehe.
                             </p>
                         </div>
                     </div>
@@ -64,10 +69,8 @@
                     <div
                         class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
                         <div class="text-black">
-                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
-                                Meu papel de parede
-                            </h3>
-                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Meu papel de parede</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
                                 Além de ser meu papel de parede, é um registro da Rebeca de cabelo liso.
                             </p>
                         </div>
@@ -81,10 +84,8 @@
                     <div
                         class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
                         <div class="text-black">
-                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
-                                O dia da formatura
-                            </h3>
-                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">O dia da formatura</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
                                 Você estava ABSURDAMENTE linda no dia da formatura, e toda apaixonada por mim.
                             </p>
                         </div>
@@ -98,10 +99,8 @@
                     <div
                         class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
                         <div class="text-black">
-                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
-                                Rebeca de cabelo curto
-                            </h3>
-                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Rebeca de cabelo curto</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
                                 Você fica linda de cabelo curto e tá fazendo uma cara muito fofa.
                             </p>
                         </div>
@@ -115,11 +114,9 @@
                     <div
                         class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
                         <div class="text-black">
-                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
-                                Rebeca na Gamecon
-                            </h3>
-                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
-                                Eu fico muito feliz que você sempre me apoia em tudo e sempre está ao meu lado
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Rebeca na Gamecon</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
+                                Eu fico muito feliz que você sempre me apoia em tudo e sempre está ao meu lado.
                             </p>
                         </div>
                     </div>
@@ -132,11 +129,9 @@
                     <div
                         class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
                         <div class="text-black">
-                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
-                                Representação
-                            </h3>
-                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
-                                Se você reparar, essa imagem representa nossa relacão, engraçadinho e estressadinha
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Representação</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
+                                Se você reparar, essa imagem representa nossa relação, engraçadinho e estressadinha.
                             </p>
                         </div>
                     </div>
@@ -149,11 +144,84 @@
                     <div
                         class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
                         <div class="text-black">
-                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">
-                                Uma das primeiras fotos
-                            </h3>
-                            <p class="text-lg sm:text-xl font-bold leading-relaxed opacity-90">
-                                Essa foto foi antes do nosso primeiro aniversário de namoro, eramos novinhos
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Uma das primeiras fotos</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
+                                Essa foto foi antes do nosso primeiro aniversário de namoro, éramos novinhos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="7">
+                    <img src="imgs/carousel/img_8.jpg" alt="Foto 8"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_8.jpg">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Rebeca no IFPA</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
+                                Amo essa foto, minha Rebeca estava no seu início no IFPA, uma longa jornada à espera.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="8">
+                    <img src="imgs/carousel/img_9.jpg" alt="Foto 9"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_9.jpg">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Rebeca super linda</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
+                                Além de você estar super linda, você amou essa foto e é uma das suas favoritas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="9">
+                    <img src="imgs/carousel/img_10.jpg" alt="Foto 10"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_10.jpg">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Rebeca do antigo testamento</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
+                                E pensar que essa garota linda já está no seu último ano do ensino médio hoje em dia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="10">
+                    <img src="imgs/carousel/img_11.jpg" alt="Foto 11"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_11.jpg">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Rebeca e sua sobrinha</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
+                                Coloquei aqui pq sei que você ama muito sua sobrinha.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide absolute inset-0 w-full h-full transition-opacity duration-700" data-slide="11">
+                    <img src="imgs/carousel/img_12.jpg" alt="Foto 12"
+                        class="w-full h-3/5 object-cover rounded-t-3xl fullscreen-img"
+                        data-fullsrc="imgs/carousel/img_12.jpg">
+                    <div
+                        class="h-2/5 bg-white/25 backdrop-blur-lg border border-white/40 shadow-2xl px-8 py-10 text-center relative z-10 mx-4 mt-[-20px]">
+                        <div class="text-black">
+                            <h3 class="text-2xl sm:text-3xl font-bold mb-4">Rebeca bebê</h3>
+                            <p class="text-base sm:text-lg font-bold leading-relaxed opacity-90">
+                                E para finalizar, a minha namorada quando era bebê, toda pequena e fofa.
                             </p>
                         </div>
                     </div>
@@ -180,6 +248,16 @@
                     onclick="currentSlide(6)"></span>
                 <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
                     onclick="currentSlide(7)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(8)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(9)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(10)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(11)"></span>
+                <span class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer hover:bg-pink-500 transition-all"
+                    onclick="currentSlide(12)"></span>
             </div>
 
             <div class="text-center">
